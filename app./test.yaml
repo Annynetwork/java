@@ -1,0 +1,1 @@
+curl -s https://mailinabox.email/setup.sh | sudo -E bash
