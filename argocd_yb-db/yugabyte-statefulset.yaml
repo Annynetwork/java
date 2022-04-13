@@ -33,7 +33,7 @@ spec:
   clusterIP: None
   ports:
   - name: ui
-    port: 7002
+    port: 7003
   - name: rpc-port
     port: 7100
   selector:
