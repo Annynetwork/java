@@ -20,5 +20,5 @@ spec:
    
     automated:
       selfHeal: true
-      prune: true
+      prune: false
     
