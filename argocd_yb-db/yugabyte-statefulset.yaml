@@ -33,7 +33,7 @@ spec:
   clusterIP: None
   ports:
   - name: ui
-    port: 7000
+    port: 7002
   - name: rpc-port
     port: 7100
   selector:
@@ -48,7 +48,7 @@ metadata:
 spec:
   ports:
   - name: ui
-    port: 7000
+    port: 7002
   selector:
     app: yb-master
   type: NodePort
@@ -117,7 +117,7 @@ spec:
           - "--replication_factor=3"
           - "--logtostderr"
         ports:
-        - containerPort: 7000
+        - containerPort: 7002
           name: master-ui
         - containerPort: 7100
           name: master-rpc
