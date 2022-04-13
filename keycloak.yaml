@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-yb-db
+  name: myapp-argo-application
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/Annynetwork/java.git
     targetRevision: HEAD
-    path: argocd_yb-db       
+    path: keycloak
   
   destination:
     server: https://kubernetes.default.svc
-    namespace: yb-db
+    namespace: keycloak
   
   syncPolicy:
     syncOptions:
@@ -20,4 +20,5 @@ spec:
    
     automated:
       selfHeal: true
-      prune: false
+      prune: true
+    
