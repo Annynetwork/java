@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Annynetwork/java.git
     targetRevision: HEAD
-    path: dev
+    path: argocd_yb-db
   
   destination:
     server: https://kubernetes.default.svc
