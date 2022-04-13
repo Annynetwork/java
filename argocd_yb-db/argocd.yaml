@@ -33,7 +33,6 @@ spec:
   ports:
   - name: ui
     port: 7002
-    targetPort: 7002
   - name: rpc-port
     port: 7102
   selector:
@@ -49,7 +48,6 @@ spec:
   ports:
   - name: ui
     port: 7002
-    targetPort: 7002
   selector:
     app: yb-master
   type: NodePort
@@ -167,7 +165,6 @@ spec:
   ports:
   - name: ui
     port: 9002
-    targetPort: 9002
   - name: rpc-port
     port: 9102
   - name: cassandra
