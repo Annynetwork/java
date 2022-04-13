@@ -9,7 +9,11 @@ spec:
   - name: http
     port: 8081
     targetPort: 8081
+<<<<<<< HEAD
     nodePort: 30081
+=======
+    nodePort: 30001
+>>>>>>> 8a61d57119e7c18638da59ad8f78a5449204c1ae
   selector:
     app: keycloak
   type: NodePort

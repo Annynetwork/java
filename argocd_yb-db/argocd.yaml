@@ -30,14 +30,14 @@ metadata:
   labels:
     app: yb-master
 spec:
-  clusterIP: localhost
+  clusterIP: none
   ports:
   - name: ui
-    port: 7000
-    targetPort: 7000
-    nodePort: 7000
+    port: 7002
+    targetPort: 7002
+    nodePort: 30002
   - name: rpc-port
-    port: 7100
+    port: 7102
   selector:
     app: yb-master
 ---
@@ -50,7 +50,9 @@ metadata:
 spec:
   ports:
   - name: ui
-    port: 7000
+    port: 7002
+    targetPort: 7002
+    nodePort: 30002
   selector:
     app: yb-master
   type: NodePort
@@ -119,18 +121,18 @@ spec:
           - "--replication_factor=3"
           - "--logtostderr"
         ports:
-        - containerPort: 7000
+        - containerPort: 7002
           name: master-ui
-        - containerPort: 7100
+        - containerPort: 7102
           name: master-rpc
 #        readinessProbe:
 #          tcpSocket:
-#            port: 7100
+#            port: 7102
 #          initialDelaySeconds: 5
 #          periodSeconds: 10
 #        livenessProbe:
 #          tcpSocket:
-#            port: 7100
+#            port: 7102
 #          initialDelaySeconds: 15
 #          periodSeconds: 10
 
@@ -165,14 +167,14 @@ metadata:
   labels:
     app: yb-tserver
 spec:
-  clusterIP: localhost
+  clusterIP: none
   ports:
   - name: ui
-    port: 9000
-    targetPort: 9000
-    nodePort: 9000
+    port: 9002
+    targetPort: 9002
+    nodePort: 30003
   - name: rpc-port
-    port: 9100
+    port: 9102
   - name: cassandra
     port: 9042
   - name: redis
@@ -191,7 +193,7 @@ metadata:
 spec:
   ports:
   - name: ui
-    port: 9000
+    port: 9002
   - name: cassandra
     port: 9042
   - name: redis
@@ -266,9 +268,9 @@ spec:
           - "--tserver_master_addrs=yb-master-0.yb-masters.$(NAMESPACE).svc.cluster.local:7100,yb-master-1.yb-masters.$(NAMESPACE).svc.cluster.local:7100,yb-master-2.yb-masters.$(NAMESPACE).svc.cluster.local:7100"
           - "--logtostderr"
         ports:
-        - containerPort: 9000
+        - containerPort: 9002
           name: tserver-ui
-        - containerPort: 9100
+        - containerPort: 9102
           name: tserver-rpc
         - containerPort: 9042
           name: cassandra
