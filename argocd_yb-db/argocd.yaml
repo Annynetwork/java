@@ -30,10 +30,12 @@ metadata:
   labels:
     app: yb-master
 spec:
-  clusterIP: None
+  clusterIP: localhost
   ports:
   - name: ui
     port: 7000
+    targetPort: 7000
+    nodePort: 7000
   - name: rpc-port
     port: 7100
   selector:
@@ -51,7 +53,7 @@ spec:
     port: 7000
   selector:
     app: yb-master
-  type: LoadBalancer
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -163,10 +165,12 @@ metadata:
   labels:
     app: yb-tserver
 spec:
-  clusterIP: None
+  clusterIP: localhost
   ports:
   - name: ui
     port: 9000
+    targetPort: 9000
+    nodePort: 9000
   - name: rpc-port
     port: 9100
   - name: cassandra
@@ -196,7 +200,7 @@ spec:
     port: 5433
   selector:
     app: yb-tserver
-  type: LoadBalancer
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: StatefulSet
