@@ -1,14 +1,14 @@
-apiVersion: v1
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: myapp-yb-db
-  namespace: yb-db
+  namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/Annynetwork/java.git
     targetRevision: HEAD
-    path: argocd_yb-db/dev
+    path: argocd
   
   destination:
     server: https://kubernetes.default.svc
