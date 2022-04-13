@@ -166,7 +166,7 @@ spec:
         #clusterIP: None
   ports:
   - name: ui
-    port: 9000
+    port: 9003
   - name: rpc-port
     port: 9100
   - name: cassandra
