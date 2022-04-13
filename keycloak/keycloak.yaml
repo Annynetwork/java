@@ -9,9 +9,10 @@ spec:
   - name: http
     port: 8081
     targetPort: 8081
+    nodePort: 8081
   selector:
     app: keycloak
-  type: LoadBalancer
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -20,7 +21,7 @@ metadata:
   labels:
     app: keycloak
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: keycloak
