@@ -33,8 +33,8 @@ spec:
   clusterIP: 127.0.0.1
   ports:
   - name: ui
-    port: 7000
-    targetPort: 7000
+    port: 7002
+    targetPort: 7002
     nodePort: 30002
   - name: rpc-port
     port: 7100
@@ -50,8 +50,8 @@ metadata:
 spec:
   ports:
   - name: ui
-    port: 7000
-    targetPort: 7000
+    port: 7002
+    targetPort: 7002
     nodePort: 30002
   selector:
     app: yb-master
@@ -121,7 +121,7 @@ spec:
           - "--replication_factor=3"
           - "--logtostderr"
         ports:
-        - containerPort: 7000
+        - containerPort: 7002
           name: master-ui
         - containerPort: 7100
           name: master-rpc
@@ -170,8 +170,8 @@ spec:
   clusterIP: 127.0.0.1
   ports:
   - name: ui
-    port: 9000
-    targetPort: 9000
+    port: 9002
+    targetPort: 9002
     nodePort: 30003
   - name: rpc-port
     port: 9100
@@ -193,7 +193,7 @@ metadata:
 spec:
   ports:
   - name: ui
-    port: 9000
+    port: 9002
   - name: cassandra
     port: 9042
   - name: redis
@@ -268,7 +268,7 @@ spec:
           - "--tserver_master_addrs=yb-master-0.yb-masters.$(NAMESPACE).svc.cluster.local:7100,yb-master-1.yb-masters.$(NAMESPACE).svc.cluster.local:7100,yb-master-2.yb-masters.$(NAMESPACE).svc.cluster.local:7100"
           - "--logtostderr"
         ports:
-        - containerPort: 9000
+        - containerPort: 9002
           name: tserver-ui
         - containerPort: 9100
           name: tserver-rpc
