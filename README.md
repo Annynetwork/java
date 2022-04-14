@@ -1,2 +1,0 @@
-# java
-hello-java
