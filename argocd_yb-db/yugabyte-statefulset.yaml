@@ -30,7 +30,7 @@ metadata:
   labels:
     app: yb-master
 spec:
-  clusterIP:
+        #clusterIP:
   ports:
   - name: ui
     port: 7003
@@ -169,7 +169,7 @@ metadata:
   labels:
     app: yb-tserver
 spec:
-  clusterIP:
+  #clusterIP:
   ports:
   - name: ui
     port: 9003
