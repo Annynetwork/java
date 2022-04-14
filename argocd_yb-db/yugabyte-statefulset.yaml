@@ -39,7 +39,7 @@ spec:
   - name: rpc-port
     port: 7100
     targetPort: 7100
-    nodePort: 32000
+    nodePort: 31100
   selector:
     app: yb-master
 ---
@@ -54,7 +54,7 @@ spec:
   - name: ui
     port: 7002
     targetPort: 7002
-    nodePort: 33000
+    nodePort: 31110
   selector:
     app: yb-master
   type: NodePort
@@ -174,23 +174,23 @@ spec:
   - name: ui
     port: 9003
     targetPort: 9003
-    nodePort: 34000
+    nodePort: 31111
   - name: rpc-port
     port: 9100
     targetPort: 9100
-    nodePort: 35000
+    nodePort: 32000
   - name: cassandra
     port: 9042
     targetPort: 9042
-    nodePort: 36000
+    nodePort: 32100
   - name: redis
     port: 6379
     targetPort: 6379
-    nodePort: 37000
+    nodePort: 32110
   - name: postgres
     port: 5433
     targetPort: 5433
-    nodePort: 38000
+    nodePort: 32111
   selector:
     app: yb-tserver
 ---
@@ -205,19 +205,19 @@ spec:
   - name: ui
     port: 9000
     targetPort: 9000
-    nodePort: 39000
+    nodePort: 32211
   - name: cassandra
     port: 9042
     targetPort: 9042
-    nodePort: 40000
+    nodePort: 32221
   - name: redis
     port: 6379
     targetPort: 6379
-    nodePort: 41000
+    nodePort: 32222
   - name: postgres
     port: 5433
     targetPort: 5433
-    nodePort: 42000
+    nodePort: 32322
   selector:
     app: yb-tserver
   type: NodePort
