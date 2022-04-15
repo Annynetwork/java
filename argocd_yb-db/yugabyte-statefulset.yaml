@@ -51,7 +51,7 @@ spec:
     port: 7000
   selector:
     app: yb-master
-  type: NodePort
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -196,7 +196,7 @@ spec:
     port: 5433
   selector:
     app: yb-tserver
-  type: NodePort
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: StatefulSet
