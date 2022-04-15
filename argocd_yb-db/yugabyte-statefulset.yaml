@@ -30,7 +30,7 @@ metadata:
   labels:
     app: yb-master
 spec:
-  #clusterIP: None
+  clusterIP: None
   ports:
   - name: ui
     port: 7000
@@ -51,7 +51,7 @@ spec:
     port: 7000
   selector:
     app: yb-master
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -99,10 +99,10 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        - name: NAMESPACE
+        - name: yb-db
           valueFrom:
             fieldRef:
-              fieldPath: metadata.namespace
+              fieldPath: metadata.yb-db
         command:
           - "/home/yugabyte/bin/yb-master"
           - "--fs_data_dirs=/mnt/data0"
@@ -163,7 +163,7 @@ metadata:
   labels:
     app: yb-tserver
 spec:
-  #clusterIP: None
+  clusterIP: None
   ports:
   - name: ui
     port: 9000
@@ -196,7 +196,7 @@ spec:
     port: 5433
   selector:
     app: yb-tserver
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -244,10 +244,10 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.name
-          - name: NAMESPACE
+          - name: yb-db
             valueFrom:
               fieldRef:
-                fieldPath: metadata.namespace
+                fieldPath: metadata.yb-db
         command:
           - "/home/yugabyte/bin/yb-tserver"
           - "--fs_data_dirs=/mnt/data0"
