@@ -86,7 +86,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
       - name: yb-master
-        image: yugabytedb/yugabyte:latest
+        image: yugabytedb/yugabyte
         imagePullPolicy: Always
         env:
         - name: GET_HOSTS_FROM
