@@ -39,20 +39,7 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
-        
-    volumeMounts:
-    - name: foo
-      mountPath: "/etc/ssl/"
-      readOnly: true 
-        ports:
-        - name: http
-          containerPort: 8080
-        readinessProbe:
-          httpGet:
-            path: /mnt/d/All/java/tomcat/spring-maven-sample/
-            port: 8080
-  volumes:
-  - name: ssl
-    secret:
-      secretName: example-com-tls1
-      optional: false
+        - name: ssl
+            secret:
+              secretName: example-com-tls1
+              optional: false
