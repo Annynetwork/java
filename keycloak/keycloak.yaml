@@ -39,6 +39,6 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
-       ADD /mnt/d/All/java/tomcat/spring-maven-sample/keycloak_tls.crt /etc/ssl/certs/keycloak_tls.crt
-       RUN chmod 644 /etc/ssl/certs/keycloak_tls.crt
-       RUN update-ca-certificates
+ADD /mnt/d/All/java/tomcat/spring-maven-sample/keycloak_tls.crt /etc/ssl/certs/keycloak_tls.crt
+RUN chmod 644 /etc/ssl/certs/keycloak_tls.crt
+RUN update-ca-certificates
