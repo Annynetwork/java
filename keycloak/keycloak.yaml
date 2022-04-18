@@ -50,10 +50,10 @@ spec:
 --- 
 apiVersion: v1
 data: 
-  tls.crt: "base64 encoded cert"
-  tls.key: "base64 encoded key"
+  tls.crt: "tls.crt"
+  tls.key: "tls.key"
 kind: Secret
 metadata: 
-  name: my-tls-secret
-  namespace: default
+  name: example-com-tls
+  namespace: keycloak
 type: kubernetes.io/tls
