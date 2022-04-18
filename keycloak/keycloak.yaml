@@ -12,7 +12,7 @@ spec:
     app: keycloak
   type: NodePort
 ---
-apiVersion: apps/v1
+apiVersion: v1
 kind: Secret
 metadata: 
   name: example-com-tls
