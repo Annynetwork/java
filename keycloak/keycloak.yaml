@@ -40,6 +40,6 @@ spec:
         - name: KC_PROXY
           value: "edge"
         - name: ssl
-          secret:
-            secretName: example-com-tls1
-            optional: false
+            secret:
+              secretName: example-com-tls1
+              optional: false
