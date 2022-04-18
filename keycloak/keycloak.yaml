@@ -11,6 +11,15 @@ spec:
   selector:
     app: keycloak
   type: NodePort
+  data: 
+  tls.crt: "keycloak_tls.crt"
+  tls.key: "keycloak_tls.key"
+kind: Secret
+metadata: 
+  name: example-com-tls
+  namespace: keycloak
+type: kubernetes.io/tls
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -46,14 +55,5 @@ spec:
           httpGet:
             path: /realms/master
             port: 8080
----
---- 
-apiVersion: v1
-data: 
-  tls.crt: "tls.crt"
-  tls.key: "tls.key"
-kind: Secret
-metadata: 
-  name: example-com-tls
-  namespace: keycloak
-type: kubernetes.io/tls
+
+
