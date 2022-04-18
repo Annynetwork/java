@@ -15,10 +15,10 @@ kind: Secret
 metadata: 
   name: example-com-tls
   namespace: keycloak
-type: kubernetes.io/tls
-  data: 
-  tls.crt: "/mnt/d/All/java/tomcat/spring-maven-sample/keycloak_tls.crt"
-  tls.key: "/mnt/d/All/java/tomcat/spring-maven-sample/keycloak_tls.key"
+  type: kubernetes.io/tls
+    data: 
+    tls.crt: "/mnt/d/All/java/tomcat/spring-maven-sample/keycloak_tls.crt"
+    tls.key: "/mnt/d/All/java/tomcat/spring-maven-sample/keycloak_tls.key"
 ---
 apiVersion: apps/v1
 kind: Deployment
