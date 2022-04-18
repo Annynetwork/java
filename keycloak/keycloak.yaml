@@ -40,9 +40,9 @@ spec:
         - name: KC_PROXY
           value: "edge"
         - secretName: example-com-tls1
-            value: "tls.crt"
+          value: "tls.crt"
           #configMap:
           #name: keycloak
           #ADD /mnt/d/All/java/tomcat/spring-maven-sample/keycloak_tls.crt /etc/ssl/certs/keycloak_tls.crt
 #RUN chmod 644 /etc/ssl/certs/keycloak_tls.crt
-#RUN update-ca-certificates
+RUN update-ca-certificates
