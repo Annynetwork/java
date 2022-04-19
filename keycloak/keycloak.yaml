@@ -43,6 +43,11 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
+          volumes:
+          - name: foo
+            secret:
+              secretName: localdomain
+                optional: false # default setting; "mysecret" must exist
         ports:
         - name: http
           containerPort: 8443
@@ -50,11 +55,7 @@ spec:
           httpGet:
             path: /realms/master
             port: 8443
-      volumes:
-      - name: foo
-        secret:
-          secretName: localdomain
-          optional: false # default setting; "mysecret" must exist
+      
  
         #- secretName: example-com-tls1
           #value: "keycloak_tls.crt"
