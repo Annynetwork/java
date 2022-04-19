@@ -31,7 +31,16 @@ spec:
       containers:
       - name: keycloak
         image: quay.io/keycloak/keycloak:17.0.1
-        args: ["start"]
+        args: ["start "]
+        volumeMounts:
+        - name: foo
+          mountPath: "/etc/ssl"
+          readOnly: true
+      volumes:
+      - name: foo
+        secret:
+          secretName: mysecret
+          optional: false # default setting; "mysecret" must exist
         env:
         - name: KEYCLOAK_ADMIN
           value: "admin"
@@ -46,6 +55,7 @@ spec:
           httpGet:
             path: /realms/master
             port: 8443
+         
         #- secretName: example-com-tls1
           #value: "keycloak_tls.crt"
           #configMap:
