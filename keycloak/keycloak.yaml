@@ -33,10 +33,7 @@ spec:
       - name: keycloak
         image: quay.io/keycloak/keycloak:17.0.1
         args: ["start-dev"]
-        volumeMounts:
-        - name: keycloak
-          mountPath: "/etc/ssl/certs/"
-          readOnly: true
+        
         env:
         - name: KEYCLOAK_ADMIN
           value: "admin"
@@ -44,10 +41,7 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
-        - name: keycloak
-          value:
-            secret:
-              secretName: localdomain
+        
         ports:
         - name: http
           containerPort: 8443
@@ -55,6 +49,10 @@ spec:
           httpGet:
             path: /realms/master
             port: 8443
+      volumeMounts:
+        - name: keycloak
+          mountPath: "/etc/ssl/certs/"
+          readOnly: true
       volumes:
       - name: keycloak
         secret:
