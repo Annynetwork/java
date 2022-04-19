@@ -55,7 +55,10 @@ spec:
           httpGet:
             path: /realms/master
             port: 8443
-      
+      volumes:
+      - name: keycloak
+        secret:
+          secretName: localdomain
  
         #- secretName: example-com-tls1
           #value: "keycloak_tls.crt"
