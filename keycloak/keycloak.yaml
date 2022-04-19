@@ -10,7 +10,7 @@ spec:
     port: 8080
   selector:
     app: keycloak
-  type: NodePort
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
