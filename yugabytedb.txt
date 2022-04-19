@@ -1,0 +1,29 @@
+ysqlsh
+
+SELECT version();
+\l  --list all databases;
+
+\dn  -list of schemas
+create schema example; --- create new schema
+
+\c database_name --  to change the database
+
+\d -- to get all tables
+
+\d table_name -- to use tabel
+
+\conninfo  --- to check conn
+
+\du -- users and provision to users
+
+CREATE DATABASE testdb;  --- create database
+
+\dt -- list all tables
+
+kubectl exec -it yb-tserver-0 /home/yugabyte/bin/ysqlsh -U postgres -d postgres -h yb-tserver-0 -p 5433
+
+
+export NODE_PORT=$(kubectl get services/yb-master-ui -o go-template='{{(index .spec.ports 0).nodePort}}')
+echo NODE_PORT=$NODE_PORT
+
+kubectl expose services/yb-master-ui --type="NodePort" --port 7000

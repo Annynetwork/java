@@ -1,0 +1,16 @@
+1) All admin user and local user to be added in all systems
+2) Check Db backup full
+3) Check incremental backup
+4) make new database with backup full
+5) make new database with incremental backup
+6) argo cd
+7) yugabytedb
+8) mail in box
+9) Keycloak with tls1.3 and tls1.2
+10) Cloud Front/ CDN ( All frontend code will be in S3 public)
+s3 all data will be in private
+11) Kubernete k8s full.
+12) parental control over all accounts different dev, prod, qa, uat.
+13) VPN, Security Group.
+14) Docker image will be java image
+

@@ -1,0 +1,8 @@
+kubectl create deployment nginx-deploy --image=nginx
+-------------
+deployment--
+template - blue print for pods- details to provide pods
+
+
+
+

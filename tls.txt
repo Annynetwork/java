@@ -1,0 +1,156 @@
+# how does https work and tls
+minikube start
+minikube status
+minikube addons list
+minikube addons enable ingress
+kubectl get pods -n kube-system
+kubectl run nginx --image=nginx
+kubectl get po
+kubectl expose deployment nginx --port 80
+vim ingress.yaml/yml
+-------------------------
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+spec:
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - backend:
+              serviceName: nginx
+              servicePort: 80
+
+---------------------------------------------
+
+kubectl apply -f ingress.yml
+
+
+echo "$(minikube ip) example.com" > /etc/hosts
+echo "$(minikube ip) example.com" | sudo tee -a /etc/hosts
+
+cat /etc/hosts | tail -n 1
+
+curl example.com
+-----------------------------------
+
+
+Add tls and https
+
+openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=example.com" -days 365
+
+openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout tls.key -out tls.crt -subj "/CN=example.com/0=tls" -days 365
+
+openssl req -x509 -newkey rsa:4096 -sha256 -nodes -extensions v3_ca -keyout argocd/argocd_tls.key -out argocd/argocd_tls.crt -subj "/CN=argocd_example.com" -days 365
+
+ll -lrt
+
+--------------------------
+
+options to create screate file using yaml file and cmd
+
+vim my-secret.yaml
+------
+apiVersion: v1
+kind: Secret
+metadata:
+   name: my-secret
+type: Opaqu
+data:
+  tls.crt: "crt data"
+  tls.key: "key data generated without curlly bracket"
+
+
+
+---------------------
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+    - hosts:
+        - example.com
+      secretName: example-com-tls  
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - backend:
+              serviceName: nginx
+              servicePort: 80
+
+
+  --------------------
+
+  second method to change secret key directly.
+
+ kubectl create secret tls argocd.example.com --namespace argocd --key argocd/argocd_tls.key --cert argocd/argocd_tls.crt
+  kubectl get secret
+
+  "check the secret "
+
+
+
+
+
+----------------
+  kubectl create secret tls example-com-tls --cert=tls.crt --key=tls.key
+
+kubectl delete secret example-com-tls
+
+kubectl get secret -o yaml
+
+-------------------------------------------------
+
+vim ingress.yaml
+
+ with tls
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+spec:
+  tls:
+    - hosts:
+        - example.com
+      secretName: example-com-tls  
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - backend:
+              serviceName: nginx
+              servicePort: 80
+
+--------------------------------------
+
+kubectl apply -f ingress.yaml
+
+curl -k https://example.com
+
+curl --cacert tls.crt https://example.com
+
+----------------------------------
+
+openssl req -x509 -nodes -days 365 -newkey rsa:4096 -out key-ingress.crt -keyout key-ingress.key -sub "/CN=key.example.com/O=key-ingress-tls"
+2212  openssl req -x509 -nodes -days 365 -newkey rsa:4096 -out key-ingress.crt -keyout key-ingress.key -sub "/CN=key.example.com/0=key-ingress-tls"
+ 2213  openssl req -x509 -nodes -days 365 -newkey rsa:4096 -out key-ingress.crt -keyout key-ingress.key -subj "/CN=key.example.com/0=key-ingress-tls"
+ 2214  openssl req -x509 -nodes -days 365 -newkey rsa:4096 -out key-ingress.crt -keyout key-ingress.key -subj "/CN=key.example.com/O=key-ingress-tls"
+ 2215  kubectl create secret tls key-igress-tls --key key-ingress.key --cert key-ingress.crt
+ openssl req -x509 -nodes -days 365 -newkey rsa:4096 -out keycloak_ingress.crt -keyout keycloak_ingress.key -subj "/CN=LAPTOP-O7PB7QAK.localdomain"
+ 2216  kubectl create deployment demo --image=gcr.io/google-samples/hello-app:1.0
+ 2217  kubectl create deployment demonstration --image=gcr.io/google-samples/hello-app:1.0
+ 2218  kubectl expose deployment demonstartion --port=8080
+ 2219  kubectl expose deployment demonstration --port=8080
+ 2220  vim ingress.yaml
+ 2221  history
+ 2222  vim ingress.yaml
+ 2223  history

@@ -1,0 +1,2 @@
+kubectl get deployment,service,pod yourapp -o yaml --export
+kubectl get service -A -n yb-demo -o yaml > service.yaml
