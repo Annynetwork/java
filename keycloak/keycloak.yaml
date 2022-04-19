@@ -33,7 +33,6 @@ spec:
       - name: keycloak
         image: quay.io/keycloak/keycloak:17.0.1
         args: ["start-dev"]
-        
         env:
         - name: KEYCLOAK_ADMIN
           value: "admin"
@@ -41,7 +40,6 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
-        
         ports:
         - name: http
           containerPort: 8443
