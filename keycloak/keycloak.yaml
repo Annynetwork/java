@@ -10,7 +10,7 @@ spec:
     port: 443
   selector:
     app: keycloak
-  type: ClusterIP
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
