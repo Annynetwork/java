@@ -40,6 +40,7 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
+        ENV KC_HOSTNAME=localhost:8443
         ports:
         - name: http
           containerPort: 8443
