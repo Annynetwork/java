@@ -32,7 +32,7 @@ spec:
       containers:
       - name: keycloak
         image: quay.io/keycloak/keycloak:17.0.1
-        args: ["start-dev"]
+        args: ["start"]
         env:
         - name: KEYCLOAK_ADMIN
           value: "admin"
@@ -43,11 +43,11 @@ spec:
         #ENV KC_HOSTNAME=localhost:8443
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 8443
         readinessProbe:
           httpGet:
             path: /realms/master
-            port: 8080
+            port: 8443
         volumeMounts:
         - name: keycloak
           mountPath: "/etc/ssl/certs/"
