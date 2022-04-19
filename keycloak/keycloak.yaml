@@ -39,7 +39,7 @@ spec:
       volumes:
       - name: foo
         secret:
-          secretName: mysecret
+          secretName: localdomain
           optional: false # default setting; "mysecret" must exist
         env:
         - name: KEYCLOAK_ADMIN
