@@ -31,10 +31,10 @@ spec:
       containers:
       - name: keycloak
         image: quay.io/keycloak/keycloak:17.0.1
-        args: ["start "]
+        args: ["start-dev"]
         volumeMounts:
         - name: foo
-          mountPath: "/etc/ssl"
+          mountPath: "/etc/ssl/certs/"
           readOnly: true
       volumes:
       - name: foo
