@@ -64,5 +64,5 @@ spec:
       volumes:
       - name: keycloak
         secret:
-          secretName: bG9jYWxkb21haW4=
+          secretName: localdomain
          
