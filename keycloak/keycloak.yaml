@@ -48,14 +48,14 @@ spec:
           httpGet:
             path: /realms/master
             port: 8080
-      #volumeMounts:
-       # - name: keycloak
-        #  mountPath: "/etc/ssl/certs/"
-         # readOnly: true
-      #volumes:
-      #- name: keycloak
-       # secret:
-        #  secretName: localdomain
+        volumeMounts:
+        - name: keycloak
+          mountPath: "/etc/ssl/certs/"
+          readOnly: true
+      volumes:
+      - name: keycloak
+        secret:
+          secretName: localdomain
  
         #- secretName: example-com-tls1
           #value: "keycloak_tls.crt"
