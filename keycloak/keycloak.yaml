@@ -40,7 +40,7 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
-        ENV KC_HOSTNAME=localhost:8443
+        #ENV KC_HOSTNAME=localhost:8443
         ports:
         - name: http
           containerPort: 8443
@@ -48,14 +48,14 @@ spec:
           httpGet:
             path: /realms/master
             port: 8443
-      volumeMounts:
-        - name: keycloak
-          mountPath: "/etc/ssl/certs/"
-          readOnly: true
-      volumes:
-      - name: keycloak
-        secret:
-          secretName: localdomain
+      #volumeMounts:
+       # - name: keycloak
+        #  mountPath: "/etc/ssl/certs/"
+         # readOnly: true
+      #volumes:
+      #- name: keycloak
+       # secret:
+        #  secretName: localdomain
  
         #- secretName: example-com-tls1
           #value: "keycloak_tls.crt"
