@@ -43,7 +43,7 @@ spec:
         - name: KC_HTTP_ENABLED
           value: "false"
         - name: KC_HOSTNAME_PATH
-          value: LAPTOP-O7PB7QAK
+          value: laptop-o7pb7qak.localdomain.com
         
         #ENV KC_HOSTNAME=localhost:8443
         ports:
