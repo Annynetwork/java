@@ -40,19 +40,6 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
-        #- name: KC_HTTP_ENABLED
-         # value: "false"
-        - name: KC_HOSTNAME_PATH
-          value: "laptop-o7pb7qak.localdomain.com"
-        - name: KC_HTTPS_CERTIFICATE_FILE
-          value: "tls.crt"
-        - name: KC_HTTPS_CERTIFICATE_KEY_FILE
-          value: "tls.key"
-        - name: KC_HTTPS_PORT
-          value: "8443"
-        - name: KC_HTTPS_PROTOCOLS
-          value: "TLSv1.3"
-        #ENV KC_HOSTNAME=localhost:8443
         ports:
         - name: http
           containerPort: 8080
