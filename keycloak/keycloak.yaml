@@ -42,6 +42,8 @@ spec:
           value: "edge"
         - name: KC_HTTP_ENABLED
           value: "false"
+        - name: KC_HOSTNAME_PATH
+          value: LAPTOP-O7PB7QAK
         
         #ENV KC_HOSTNAME=localhost:8443
         ports:
