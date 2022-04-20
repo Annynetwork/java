@@ -41,7 +41,7 @@ spec:
         - name: KC_PROXY
           value: "edge"
         - name: KC_HOSTNAME_PATH
-          value: "myapp.com"
+          value: "laptop-o7pb7qak.localdomain.com"
         ports:
         - name: http
           containerPort: 8080
