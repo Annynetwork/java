@@ -55,4 +55,4 @@ spec:
       volumes:
       - name: keycloak
         secret:
-          secretName: localdomain
+          secretName: localdomain-tls
