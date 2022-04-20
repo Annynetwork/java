@@ -40,8 +40,6 @@ spec:
           value: "admin"
         - name: KC_PROXY
           value: "edge"
-        - name: KC_HOSTNAME_PATH
-          value: "laptop-o7pb7qak.localdomain.com"
         ports:
         - name: http
           containerPort: 8080
