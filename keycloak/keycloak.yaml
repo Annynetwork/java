@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 8080
+    port: 8443
   selector:
     app: keycloak
   #type: NodePort
@@ -42,11 +42,11 @@ spec:
           value: "edge"
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 8443
         readinessProbe:
           httpGet:
             path: /realms/master
-            port: 8080
+            port: 8443
         volumeMounts:
         - name: keycloak
           mountPath: "/etc/ssl/certs/"
