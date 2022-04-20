@@ -1,0 +1,1085 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"controller","app.kubernetes.io/name":"argocd-applicationset-controller","app.kubernetes.io/part-of":"argocd-applicationset"},"name":"argocd-applicationset-controller","namespace":"argocd"},"spec":{"ports":[{"name":"webhook","port":7000,"protocol":"TCP","targetPort":"webhook"}],"selector":{"app.kubernetes.io/name":"argocd-applicationset-controller"}}}
+    creationTimestamp: "2022-04-15T07:28:43Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/name: argocd-applicationset-controller
+      app.kubernetes.io/part-of: argocd-applicationset
+    name: argocd-applicationset-controller
+    namespace: argocd
+    resourceVersion: "85965"
+    uid: 0f57c8d8-9f51-43b7-a2b5-84897529cc8b
+  spec:
+    clusterIP: 10.103.147.217
+    clusterIPs:
+    - 10.103.147.217
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: webhook
+      port: 7000
+      protocol: TCP
+      targetPort: webhook
+    selector:
+      app.kubernetes.io/name: argocd-applicationset-controller
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"dex-server","app.kubernetes.io/name":"argocd-dex-server","app.kubernetes.io/part-of":"argocd"},"name":"argocd-dex-server","namespace":"argocd"},"spec":{"ports":[{"name":"http","port":5556,"protocol":"TCP","targetPort":5556},{"name":"grpc","port":5557,"protocol":"TCP","targetPort":5557},{"name":"metrics","port":5558,"protocol":"TCP","targetPort":5558}],"selector":{"app.kubernetes.io/name":"argocd-dex-server"}}}
+    creationTimestamp: "2022-04-15T07:28:43Z"
+    labels:
+      app.kubernetes.io/component: dex-server
+      app.kubernetes.io/name: argocd-dex-server
+      app.kubernetes.io/part-of: argocd
+    name: argocd-dex-server
+    namespace: argocd
+    resourceVersion: "85969"
+    uid: 5623a0ae-2065-4698-9822-08d45ea4219a
+  spec:
+    clusterIP: 10.108.204.160
+    clusterIPs:
+    - 10.108.204.160
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 5556
+      protocol: TCP
+      targetPort: 5556
+    - name: grpc
+      port: 5557
+      protocol: TCP
+      targetPort: 5557
+    - name: metrics
+      port: 5558
+      protocol: TCP
+      targetPort: 5558
+    selector:
+      app.kubernetes.io/name: argocd-dex-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"metrics","app.kubernetes.io/name":"argocd-metrics","app.kubernetes.io/part-of":"argocd"},"name":"argocd-metrics","namespace":"argocd"},"spec":{"ports":[{"name":"metrics","port":8082,"protocol":"TCP","targetPort":8082}],"selector":{"app.kubernetes.io/name":"argocd-application-controller"}}}
+    creationTimestamp: "2022-04-15T07:28:43Z"
+    labels:
+      app.kubernetes.io/component: metrics
+      app.kubernetes.io/name: argocd-metrics
+      app.kubernetes.io/part-of: argocd
+    name: argocd-metrics
+    namespace: argocd
+    resourceVersion: "85973"
+    uid: adf3ed2b-047e-4dce-adf9-00a7ac57ee37
+  spec:
+    clusterIP: 10.96.242.244
+    clusterIPs:
+    - 10.96.242.244
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 8082
+      protocol: TCP
+      targetPort: 8082
+    selector:
+      app.kubernetes.io/name: argocd-application-controller
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-notifications-controller-metrics"},"name":"argocd-notifications-controller-metrics","namespace":"argocd"},"spec":{"ports":[{"name":"metrics","port":9001,"protocol":"TCP","targetPort":9001}],"selector":{"app.kubernetes.io/name":"argocd-notifications-controller"}}}
+    creationTimestamp: "2022-04-15T07:28:43Z"
+    labels:
+      app.kubernetes.io/name: argocd-notifications-controller-metrics
+    name: argocd-notifications-controller-metrics
+    namespace: argocd
+    resourceVersion: "85977"
+    uid: ace029c5-6dfa-472b-a3cc-c895e4129a86
+  spec:
+    clusterIP: 10.102.44.211
+    clusterIPs:
+    - 10.102.44.211
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 9001
+      protocol: TCP
+      targetPort: 9001
+    selector:
+      app.kubernetes.io/name: argocd-notifications-controller
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"redis","app.kubernetes.io/name":"argocd-redis","app.kubernetes.io/part-of":"argocd"},"name":"argocd-redis","namespace":"argocd"},"spec":{"ports":[{"name":"tcp-redis","port":6379,"targetPort":6379}],"selector":{"app.kubernetes.io/name":"argocd-redis"}}}
+    creationTimestamp: "2022-04-15T07:28:43Z"
+    labels:
+      app.kubernetes.io/component: redis
+      app.kubernetes.io/name: argocd-redis
+      app.kubernetes.io/part-of: argocd
+    name: argocd-redis
+    namespace: argocd
+    resourceVersion: "85981"
+    uid: a59c2e26-9474-450c-b863-07f0c0daa535
+  spec:
+    clusterIP: 10.96.225.101
+    clusterIPs:
+    - 10.96.225.101
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: tcp-redis
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      app.kubernetes.io/name: argocd-redis
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"repo-server","app.kubernetes.io/name":"argocd-repo-server","app.kubernetes.io/part-of":"argocd"},"name":"argocd-repo-server","namespace":"argocd"},"spec":{"ports":[{"name":"server","port":8081,"protocol":"TCP","targetPort":8081},{"name":"metrics","port":8084,"protocol":"TCP","targetPort":8084}],"selector":{"app.kubernetes.io/name":"argocd-repo-server"}}}
+    creationTimestamp: "2022-04-15T07:28:43Z"
+    labels:
+      app.kubernetes.io/component: repo-server
+      app.kubernetes.io/name: argocd-repo-server
+      app.kubernetes.io/part-of: argocd
+    name: argocd-repo-server
+    namespace: argocd
+    resourceVersion: "85985"
+    uid: 8c18f371-57d8-44a5-b12b-351642294299
+  spec:
+    clusterIP: 10.106.220.8
+    clusterIPs:
+    - 10.106.220.8
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: server
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    - name: metrics
+      port: 8084
+      protocol: TCP
+      targetPort: 8084
+    selector:
+      app.kubernetes.io/name: argocd-repo-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"server","app.kubernetes.io/name":"argocd-server","app.kubernetes.io/part-of":"argocd"},"name":"argocd-server","namespace":"argocd"},"spec":{"ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":8080},{"name":"https","port":443,"protocol":"TCP","targetPort":8080}],"selector":{"app.kubernetes.io/name":"argocd-server"}}}
+    creationTimestamp: "2022-04-15T07:28:43Z"
+    labels:
+      app.kubernetes.io/component: server
+      app.kubernetes.io/name: argocd-server
+      app.kubernetes.io/part-of: argocd
+    name: argocd-server
+    namespace: argocd
+    resourceVersion: "85989"
+    uid: 176d2d5d-8183-4d3f-9305-35f088591fb7
+  spec:
+    clusterIP: 10.110.121.215
+    clusterIPs:
+    - 10.110.121.215
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app.kubernetes.io/name: argocd-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"server","app.kubernetes.io/name":"argocd-server-metrics","app.kubernetes.io/part-of":"argocd"},"name":"argocd-server-metrics","namespace":"argocd"},"spec":{"ports":[{"name":"metrics","port":8083,"protocol":"TCP","targetPort":8083}],"selector":{"app.kubernetes.io/name":"argocd-server"}}}
+    creationTimestamp: "2022-04-15T07:28:43Z"
+    labels:
+      app.kubernetes.io/component: server
+      app.kubernetes.io/name: argocd-server-metrics
+      app.kubernetes.io/part-of: argocd
+    name: argocd-server-metrics
+    namespace: argocd
+    resourceVersion: "85993"
+    uid: cdf8ecad-901d-4da0-b3d7-1621999eedcc
+  spec:
+    clusterIP: 10.111.14.176
+    clusterIPs:
+    - 10.111.14.176
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 8083
+      protocol: TCP
+      targetPort: 8083
+    selector:
+      app.kubernetes.io/name: argocd-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-04-15T06:57:19Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "84391"
+    uid: 7df06002-196e-453d-a552-69b49136543f
+  spec:
+    clusterIP: 10.96.0.1
+    clusterIPs:
+    - 10.96.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"yb-tserver"},"name":"yb-db-service","namespace":"default"},"spec":{"ports":[{"name":"ui","port":9000},{"name":"cassandra","port":9042},{"name":"redis","port":6379},{"name":"postgres","port":5433}],"selector":{"app":"yb-tserver"},"type":"LoadBalancer"}}
+    creationTimestamp: "2022-04-15T12:49:14Z"
+    labels:
+      app: yb-tserver
+    name: yb-db-service
+    namespace: default
+    resourceVersion: "97319"
+    uid: bd71e5f8-516d-4a3d-8b7e-6e7a81ed547e
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.103.167.181
+    clusterIPs:
+    - 10.103.167.181
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: ui
+      nodePort: 31028
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+    - name: cassandra
+      nodePort: 31607
+      port: 9042
+      protocol: TCP
+      targetPort: 9042
+    - name: redis
+      nodePort: 31802
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    - name: postgres
+      nodePort: 32115
+      port: 5433
+      protocol: TCP
+      targetPort: 5433
+    selector:
+      app: yb-tserver
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"yb-master"},"name":"yb-master-ui","namespace":"default"},"spec":{"ports":[{"name":"ui","port":7000}],"selector":{"app":"yb-master"},"type":"LoadBalancer"}}
+    creationTimestamp: "2022-04-15T12:49:13Z"
+    labels:
+      app: yb-master
+    name: yb-master-ui
+    namespace: default
+    resourceVersion: "97313"
+    uid: 8d88a8b6-d5d6-4384-b23d-3ad15bf50015
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.103.36.141
+    clusterIPs:
+    - 10.103.36.141
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: ui
+      nodePort: 32370
+      port: 7000
+      protocol: TCP
+      targetPort: 7000
+    selector:
+      app: yb-master
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"yb-master"},"name":"yb-masters","namespace":"default"},"spec":{"clusterIP":"None","ports":[{"name":"ui","port":7000},{"name":"rpc-port","port":7100}],"selector":{"app":"yb-master"}}}
+    creationTimestamp: "2022-04-15T12:49:13Z"
+    labels:
+      app: yb-master
+    name: yb-masters
+    namespace: default
+    resourceVersion: "97055"
+    uid: f0d27e68-439e-40b4-9bbf-50bc5406bac3
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: ui
+      port: 7000
+      protocol: TCP
+      targetPort: 7000
+    - name: rpc-port
+      port: 7100
+      protocol: TCP
+      targetPort: 7100
+    selector:
+      app: yb-master
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"yb-tserver"},"name":"yb-tservers","namespace":"default"},"spec":{"clusterIP":"None","ports":[{"name":"ui","port":9000},{"name":"rpc-port","port":9100},{"name":"cassandra","port":9042},{"name":"redis","port":6379},{"name":"postgres","port":5433}],"selector":{"app":"yb-tserver"}}}
+    creationTimestamp: "2022-04-15T12:49:13Z"
+    labels:
+      app: yb-tserver
+    name: yb-tservers
+    namespace: default
+    resourceVersion: "97063"
+    uid: 3b4131d8-a9bc-42ea-8e48-f33e0c57db15
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: ui
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+    - name: rpc-port
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+    - name: cassandra
+      port: 9042
+      protocol: TCP
+      targetPort: 9042
+    - name: redis
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    - name: postgres
+      port: 5433
+      protocol: TCP
+      targetPort: 5433
+    selector:
+      app: yb-tserver
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"ingress-nginx","app.kubernetes.io/name":"ingress-nginx"},"name":"ingress-nginx-controller","namespace":"ingress-nginx"},"spec":{"ipFamilies":["IPv4"],"ipFamilyPolicy":"SingleStack","ports":[{"appProtocol":"http","name":"http","port":80,"protocol":"TCP","targetPort":"http"},{"appProtocol":"https","name":"https","port":443,"protocol":"TCP","targetPort":"https"}],"selector":{"app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"ingress-nginx","app.kubernetes.io/name":"ingress-nginx"},"type":"NodePort"}}
+    creationTimestamp: "2022-04-15T11:54:37Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: ingress-nginx
+    name: ingress-nginx-controller
+    namespace: ingress-nginx
+    resourceVersion: "93524"
+    uid: 0a0650a2-6b47-47a2-b8e7-812e3331c1eb
+  spec:
+    clusterIP: 10.106.98.0
+    clusterIPs:
+    - 10.106.98.0
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - appProtocol: http
+      name: http
+      nodePort: 31417
+      port: 80
+      protocol: TCP
+      targetPort: http
+    - appProtocol: https
+      name: https
+      nodePort: 32695
+      port: 443
+      protocol: TCP
+      targetPort: https
+    selector:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: ingress-nginx
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"ingress-nginx","app.kubernetes.io/name":"ingress-nginx"},"name":"ingress-nginx-controller-admission","namespace":"ingress-nginx"},"spec":{"ports":[{"appProtocol":"https","name":"https-webhook","port":443,"targetPort":"webhook"}],"selector":{"app.kubernetes.io/component":"controller","app.kubernetes.io/instance":"ingress-nginx","app.kubernetes.io/name":"ingress-nginx"},"type":"ClusterIP"}}
+    creationTimestamp: "2022-04-15T11:54:37Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: ingress-nginx
+    name: ingress-nginx-controller-admission
+    namespace: ingress-nginx
+    resourceVersion: "93526"
+    uid: aa57f64c-f1da-414d-97b0-4ecf6d92edb8
+  spec:
+    clusterIP: 10.99.120.118
+    clusterIPs:
+    - 10.99.120.118
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - appProtocol: https
+      name: https-webhook
+      port: 443
+      protocol: TCP
+      targetPort: webhook
+    selector:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: ingress-nginx
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"keycloak","app.kubernetes.io/instance":"myapp-argo-application"},"name":"keycloak","namespace":"keycloak"},"spec":{"ports":[{"name":"http","port":8080}],"selector":{"app":"keycloak"},"type":"NodePort"}}
+    creationTimestamp: "2022-04-15T08:59:21Z"
+    labels:
+      app: keycloak
+      app.kubernetes.io/instance: myapp-argo-application
+    name: keycloak
+    namespace: keycloak
+    resourceVersion: "90321"
+    uid: 1603b5e4-d586-4ce7-b416-a76cdec3f8c5
+  spec:
+    clusterIP: 10.106.123.249
+    clusterIPs:
+    - 10.106.123.249
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 31125
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: keycloak
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      prometheus.io/port: "9153"
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2022-04-11T06:32:07Z"
+    labels:
+      k8s-app: kube-dns
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: CoreDNS
+    name: kube-dns
+    namespace: kube-system
+    resourceVersion: "272"
+    uid: 68df3073-be78-4a47-941c-a1405b86f944
+  spec:
+    clusterIP: 10.96.0.10
+    clusterIPs:
+    - 10.96.0.10
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: dns
+      port: 53
+      protocol: UDP
+      targetPort: 53
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+      targetPort: 53
+    - name: metrics
+      port: 9153
+      protocol: TCP
+      targetPort: 9153
+    selector:
+      k8s-app: kube-dns
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"addonmanager.kubernetes.io/mode":"Reconcile","k8s-app":"dashboard-metrics-scraper","kubernetes.io/minikube-addons":"dashboard"},"name":"dashboard-metrics-scraper","namespace":"kubernetes-dashboard"},"spec":{"ports":[{"port":8000,"targetPort":8000}],"selector":{"k8s-app":"dashboard-metrics-scraper"}}}
+    creationTimestamp: "2022-04-15T07:14:42Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: dashboard-metrics-scraper
+      kubernetes.io/minikube-addons: dashboard
+    name: dashboard-metrics-scraper
+    namespace: kubernetes-dashboard
+    resourceVersion: "85309"
+    uid: 19709e3b-9a67-46f1-b6bd-9db83d9a3b92
+  spec:
+    clusterIP: 10.111.7.232
+    clusterIPs:
+    - 10.111.7.232
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8000
+      protocol: TCP
+      targetPort: 8000
+    selector:
+      k8s-app: dashboard-metrics-scraper
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"addonmanager.kubernetes.io/mode":"Reconcile","k8s-app":"kubernetes-dashboard","kubernetes.io/minikube-addons":"dashboard"},"name":"kubernetes-dashboard","namespace":"kubernetes-dashboard"},"spec":{"ports":[{"port":80,"targetPort":9090}],"selector":{"k8s-app":"kubernetes-dashboard"}}}
+    creationTimestamp: "2022-04-15T07:14:42Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: kubernetes-dashboard
+      kubernetes.io/minikube-addons: dashboard
+    name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    resourceVersion: "85300"
+    uid: 05f053fc-5775-4ea5-afe5-7b70f3e653ab
+  spec:
+    clusterIP: 10.105.51.123
+    clusterIPs:
+    - 10.105.51.123
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 9090
+    selector:
+      k8s-app: kubernetes-dashboard
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"yb-tserver","app.kubernetes.io/instance":"myapp-yb-db"},"name":"yb-db-service","namespace":"yb-db"},"spec":{"ports":[{"name":"ui","port":9000},{"name":"cassandra","port":9042},{"name":"redis","port":6379},{"name":"postgres","port":5433}],"selector":{"app":"yb-tserver"},"type":"LoadBalancer"}}
+    creationTimestamp: "2022-04-15T08:26:19Z"
+    labels:
+      app: yb-tserver
+      app.kubernetes.io/instance: myapp-yb-db
+    name: yb-db-service
+    namespace: yb-db
+    resourceVersion: "96800"
+    uid: 4be697ed-6995-4473-9d10-f05bc3b46006
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.107.21.170
+    clusterIPs:
+    - 10.107.21.170
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: ui
+      nodePort: 32669
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+    - name: cassandra
+      nodePort: 30031
+      port: 9042
+      protocol: TCP
+      targetPort: 9042
+    - name: redis
+      nodePort: 32003
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    - name: postgres
+      nodePort: 30533
+      port: 5433
+      protocol: TCP
+      targetPort: 5433
+    selector:
+      app: yb-tserver
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"yb-master","app.kubernetes.io/instance":"myapp-yb-db"},"name":"yb-master-ui","namespace":"yb-db"},"spec":{"ports":[{"name":"ui","port":7000}],"selector":{"app":"yb-master"},"type":"LoadBalancer"}}
+    creationTimestamp: "2022-04-15T08:26:19Z"
+    labels:
+      app: yb-master
+      app.kubernetes.io/instance: myapp-yb-db
+    name: yb-master-ui
+    namespace: yb-db
+    resourceVersion: "96798"
+    uid: 7b4fb2a8-4757-4cf0-9084-caa8b4dec364
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.108.229.114
+    clusterIPs:
+    - 10.108.229.114
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: ui
+      nodePort: 31601
+      port: 7000
+      protocol: TCP
+      targetPort: 7000
+    selector:
+      app: yb-master
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"yb-master","app.kubernetes.io/instance":"myapp-yb-db"},"name":"yb-masters","namespace":"yb-db"},"spec":{"ports":[{"name":"ui","port":7000},{"name":"rpc-port","port":7100}],"selector":{"app":"yb-master"}}}
+    creationTimestamp: "2022-04-15T08:26:19Z"
+    labels:
+      app: yb-master
+      app.kubernetes.io/instance: myapp-yb-db
+    name: yb-masters
+    namespace: yb-db
+    resourceVersion: "88670"
+    uid: 278ed4d4-26c8-469c-9847-48d74bf26c9a
+  spec:
+    clusterIP: 10.105.219.144
+    clusterIPs:
+    - 10.105.219.144
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: ui
+      port: 7000
+      protocol: TCP
+      targetPort: 7000
+    - name: rpc-port
+      port: 7100
+      protocol: TCP
+      targetPort: 7100
+    selector:
+      app: yb-master
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"yb-tserver","app.kubernetes.io/instance":"myapp-yb-db"},"name":"yb-tservers","namespace":"yb-db"},"spec":{"ports":[{"name":"ui","port":9000},{"name":"rpc-port","port":9100},{"name":"cassandra","port":9042},{"name":"redis","port":6379},{"name":"postgres","port":5433}],"selector":{"app":"yb-tserver"}}}
+    creationTimestamp: "2022-04-15T08:26:19Z"
+    labels:
+      app: yb-tserver
+      app.kubernetes.io/instance: myapp-yb-db
+    name: yb-tservers
+    namespace: yb-db
+    resourceVersion: "88665"
+    uid: c555cb91-55e2-4e95-b94b-f10b4a0b0455
+  spec:
+    clusterIP: 10.110.73.228
+    clusterIPs:
+    - 10.110.73.228
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: ui
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+    - name: rpc-port
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+    - name: cassandra
+      port: 9042
+      protocol: TCP
+      targetPort: 9042
+    - name: redis
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    - name: postgres
+      port: 5433
+      protocol: TCP
+      targetPort: 5433
+    selector:
+      app: yb-tserver
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: yb-demo
+      meta.helm.sh/release-namespace: yb-demo
+    creationTimestamp: "2022-04-15T13:05:26Z"
+    labels:
+      app: yb-master
+      app.kubernetes.io/managed-by: Helm
+      chart: yugabyte
+      component: yugabytedb
+      heritage: Helm
+      release: yb-demo
+    name: yb-master-ui
+    namespace: yb-demo
+    resourceVersion: "98218"
+    uid: 62dd53f1-c6b9-4b16-bb32-686c91c7f235
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.98.73.84
+    clusterIPs:
+    - 10.98.73.84
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-ui
+      nodePort: 31361
+      port: 7000
+      protocol: TCP
+      targetPort: 7000
+    selector:
+      app: yb-master
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: yb-demo
+      meta.helm.sh/release-namespace: yb-demo
+    creationTimestamp: "2022-04-15T13:05:26Z"
+    labels:
+      app: yb-master
+      app.kubernetes.io/managed-by: Helm
+      chart: yugabyte
+      component: yugabytedb
+      heritage: Helm
+      release: yb-demo
+      service-type: headless
+    name: yb-masters
+    namespace: yb-demo
+    resourceVersion: "98207"
+    uid: 5ec30d26-76b7-409d-b379-0eaa0adf311c
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-ui
+      port: 7000
+      protocol: TCP
+      targetPort: 7000
+    - name: tcp-rpc-port
+      port: 7100
+      protocol: TCP
+      targetPort: 7100
+    selector:
+      app: yb-master
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: yb-demo
+      meta.helm.sh/release-namespace: yb-demo
+    creationTimestamp: "2022-04-15T13:05:26Z"
+    labels:
+      app: yb-tserver
+      app.kubernetes.io/managed-by: Helm
+      chart: yugabyte
+      component: yugabytedb
+      heritage: Helm
+      release: yb-demo
+    name: yb-tserver-service
+    namespace: yb-demo
+    resourceVersion: "98226"
+    uid: 567989e9-c4fa-4e90-85eb-fd5ea2b1dcc8
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.98.240.70
+    clusterIPs:
+    - 10.98.240.70
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: tcp-yedis-port
+      nodePort: 30523
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    - name: tcp-yql-port
+      nodePort: 31110
+      port: 9042
+      protocol: TCP
+      targetPort: 9042
+    - name: tcp-ysql-port
+      nodePort: 31365
+      port: 5433
+      protocol: TCP
+      targetPort: 5433
+    selector:
+      app: yb-tserver
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: yb-demo
+      meta.helm.sh/release-namespace: yb-demo
+    creationTimestamp: "2022-04-15T13:05:26Z"
+    labels:
+      app: yb-tserver
+      app.kubernetes.io/managed-by: Helm
+      chart: yugabyte
+      component: yugabytedb
+      heritage: Helm
+      release: yb-demo
+      service-type: headless
+    name: yb-tservers
+    namespace: yb-demo
+    resourceVersion: "98208"
+    uid: e6cbaf20-adb1-46bf-8046-f9e5e87e4b45
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-ui
+      port: 9000
+      protocol: TCP
+      targetPort: 9000
+    - name: http-ycql-met
+      port: 12000
+      protocol: TCP
+      targetPort: 12000
+    - name: http-yedis-met
+      port: 11000
+      protocol: TCP
+      targetPort: 11000
+    - name: http-ysql-met
+      port: 13000
+      protocol: TCP
+      targetPort: 13000
+    - name: tcp-rpc-port
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+    - name: tcp-yedis-port
+      port: 6379
+      protocol: TCP
+      targetPort: 6379
+    - name: tcp-yql-port
+      port: 9042
+      protocol: TCP
+      targetPort: 9042
+    - name: tcp-ysql-port
+      port: 5433
+      protocol: TCP
+      targetPort: 5433
+    selector:
+      app: yb-tserver
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

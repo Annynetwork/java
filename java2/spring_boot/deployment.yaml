@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: "2022-04-14T11:17:43Z"
+  generation: 1
+  labels:
+    app: demo
+  name: demo
+  namespace: default
+  resourceVersion: "68257"
+  uid: 55592e9f-0d5e-4f5b-890e-38515ee0109c
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: demo
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: demo
+    spec:
+      containers:
+      - image: springguides/demo
+        imagePullPolicy: Always
+        name: demo
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        #dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status: {}
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: demo
+  name: demo
+spec:
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: demo
+  type: NodePOrt
+status:
+  loadBalancer: {}
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-04-14T11:18:12Z"
+  labels:
+    app: demo
+  name: demo
+  namespace: default
+  resourceVersion: "68302"
+  uid: 493be3b4-1fec-4184-b855-d91817752abf
+spec:
+        #clusterIP: 10.100.162.139
+        #clusterIPs:
+        #- 10.100.162.139
+    #internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: 8080-8080
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: demo
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

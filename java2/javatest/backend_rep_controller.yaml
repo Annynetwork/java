@@ -1,0 +1,38 @@
+apiVersion:v1
+kind:ReplicationController
+ metadata:
+            name: backend
+            spec:
+                     replicas:3
+                      template: 
+                         metadata:
+                                     name: backend
+                                         labels:
+                                                       k8s-app: backend
+                                                             component:play
+                                                                   env:dev
+                                                       spec:
+                                                                 nodeSelector:
+                                                                            resource-group: dev
+                                                                             containers:
+                                                                                       - name: appname 
+                                                                                           image:IMAGE_TEMPLATE 
+                                                                                             imagePullPolicy:Always 
+                                                                                               ports: 
+                                                                                                  -containerPort:9000
+                                                                                                     command: [ “./docker-entrypoint.sh” ]
+                                                                                                        resources:
+                                                                                                                    requests:
+                                                                                                                                 memory: "request_mem"
+                                                                                                                                      cpu: "request_cpu" 
+                                                                                                                                          limits:
+                                                                                                                                                        memory: "limit_mem"
+                                                                                                                                                              cpu: "limit_cpu" 
+                                                                                                                                                                 volumeMounts:
+                                                                                                                                                                              — name: config-volume
+                                                                                                                                                                                   mountPath: /app/vipin/play/conf
+                                                                                                                                                                                    volumes:
+                                                                                                                                                                                               -name:config-volume
+                                                                                                                                                                                                 configMap:
+                                                                                                                                                                                                           name: appname
+

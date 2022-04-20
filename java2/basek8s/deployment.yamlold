@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+  labels:
+    app: deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: deploy
+  template:
+    metadata:
+      labels:
+        app: deploy
+    spec:
+      containers:
+        - name: deploy
+          image: my-image
+          env:
+            - name: $OME_ENV
+              value: $OME_ENV
+          ports:
+            - containerPort: 8082     
