@@ -48,10 +48,10 @@ spec:
           value: "18443"
         - name: KC_HTTPS_PROTOCOLS
           value: "TLSv1.3,TLSv1.2"
-        - name: KC_HTTPS_CERTIFICATE_FILE
-          value: "tls.crt"
-        - name: KC_HTTPS_CERTIFICATE_KEY_FILE
-          value: "tls.key"
+        #- name: KC_HTTPS_CERTIFICATE_FILE
+         # value: "tls.crt"
+        #- name: KC_HTTPS_CERTIFICATE_KEY_FILE
+         # value: "tls.key"
         ports:
         - name: http
           containerPort: 18443
