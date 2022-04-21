@@ -42,8 +42,6 @@ spec:
           value: "edge"
         - name: KC_HOSTNAME_STRICT
           value: "false"
-        - name: KC_HTTP_ENABLED
-          value: "false"
         - name: KC_HTTPS_PORT
           value: "8443"
         - name: KC_HTTPS_PROTOCOLS
