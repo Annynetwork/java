@@ -7,7 +7,7 @@ metadata:
     app: keycloak
 spec:
   ports:
-  - name: http
+  - name: https
     port: 8443
   selector:
     app: keycloak
@@ -53,10 +53,10 @@ spec:
         #- name: KC_HTTPS_CERTIFICATE_KEY_FILE
          # value: "tls.key"
         ports:
-        - name: http
+        - name: https
           containerPort: 8443
         readinessProbe:
-          httpGet:
+          httpsGet:
             path: /realms/master
             port: 8443
         volumeMounts:
