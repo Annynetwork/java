@@ -49,9 +49,15 @@ spec:
         - name: KC_HTTPS_PROTOCOLS
           value: "TLSv1.3,TLSv1.2"
         - name: KC_HTTPS_CERTIFICATE_FILE
-          value: "tls.crt"
+          value:
+          - name: keycloak
+            secret:
+              secretName: localdomain-tls
         - name: KC_HTTPS_CERTIFICATE_KEY_FILE
-          value: "tls.key"
+          value:
+          - name: keycloak
+              secret:
+                secretName: localdomain-tls
         ports:
         - name: https
           containerPort: 8443
