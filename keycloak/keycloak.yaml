@@ -62,7 +62,7 @@ spec:
         - name: https
           containerPort: 8443
         readinessProbe:
-          httpsGet:
+          httpGet:
             path: /realms/master
             port: 8443
         volumeMounts:
